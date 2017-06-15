@@ -19,6 +19,9 @@ namespace StockPriceDownloaderService
             {
                 new Service1()
             };
+            DataDownload.InitializeTmpArray();
+            DataDownload.Download();
+            DataDownload.PopulateTmpArr();
             ServiceBase.Run(ServicesToRun);
         }
     }
