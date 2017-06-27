@@ -35,39 +35,12 @@ namespace StockPriceDownloaderService
 
         public bool OpenConnection()
         {
-            try
-            {
-                connection.Open();
-                return true;
-            }
-            catch (MySqlException ex)
-            {
-                switch (ex.Number)
-                {
-                    case 0:
-                        Console.WriteLine("Cannot connect to server.  Contact administrator");
-                        break;
-
-                    case 1045:
-                        Console.WriteLine("Invalid username/password, please try again");
-                        break;
-                }
-                return false;
-            }
+            connection.Open();
         }
 
         public bool CloseConnection()
         {
-            try
-            {
-                connection.Close();
-                return true;
-            }
-            catch (MySqlException ex)
-            {
-                Console.WriteLine(ex.Message);
-                return false;
-            }
+            connection.Close();
         }
     }
 }
